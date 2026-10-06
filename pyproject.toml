@@ -10,7 +10,10 @@ readme = "README.md"
 license = {file = "LICENSE"}
 dependencies = [
     "absl-py>=2.3.1",
-    "alphafold3 @ git+https://github.com/google-deepmind/alphafold3.git",
+    # Pinned to a specific commit: upstream floats on HEAD, which would change
+    # the folding stage mid-campaign and break reproducibility. Bump
+    # deliberately and re-run a smoke test when you do.
+    "alphafold3 @ git+https://github.com/google-deepmind/alphafold3.git@c121cd877ae3d9ac62922f0f8bedde7179bb39b1",
     "chex",
     "dm-haiku==0.0.17",
     "dm-tree",
